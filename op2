@@ -1,0 +1,99 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int A[8]={2,3,1,1,1,1,1,1};
+int B[11]={3,3,1,1,1,1,1,1,1,1,1};
+
+int main(int argc, char  *argv[])
+{
+	
+	int FilaA = A[0];
+	int ColumnaA = A[1];
+	int FilaB = B[0];
+	int ColumnaB = B[1];
+	int MatrizResultado[FilaA][ColumnaB];
+	int MatrizA[FilaA][ColumnaA];
+	int MatrizB[FilaB][ColumnaB];	
+	int k;
+	int p =2;
+	int i; 
+	int j;
+	int h=2;
+	int u=2;
+
+	char ArregloResultado[FilaA*ColumnaB+2];
+	for ( i = 0; i < FilaA; ++i)
+  	{
+  		for ( j = 0; j < ColumnaA; ++j)
+  		{
+  			MatrizA[i][j]= A[p];
+  			p++;
+  			printf("%d",MatrizA[i][j] );
+  		}
+  		printf("\n");
+  		
+  	}
+
+  	for ( i = 0; i < FilaB; ++i)
+  	{
+  		for ( j = 0; j < ColumnaB; ++j)
+  		{
+  			MatrizB[i][j]= B[h];
+  			h++;
+  			printf("%d",MatrizB[i][j] );
+  		}
+  		printf("\n");
+
+  		
+  	}
+
+
+	if(ColumnaA == FilaB){
+
+
+
+	for(i=0;i<FilaA;i++){
+      for(j=0;j<ColumnaB;j++){
+          	MatrizResultado[i][j]=0;
+          			for(k=0;k<ColumnaA;k++){
+              			MatrizResultado[i][j]=(MatrizResultado[i][j]+(MatrizA[i][k]*MatrizB[k][j]));
+          			}
+     	 	}
+  	}
+
+  	for ( i = 0; i < FilaA; ++i)
+  	{
+  		for ( j = 0; j < ColumnaB; ++j)
+  		{
+  			printf("%d-",MatrizResultado[i][j]);
+  		}
+  		printf("\n");
+  	}
+
+
+  	ArregloResultado[0]=FilaA+48;
+  	ArregloResultado[1]=ColumnaB+48;
+  	for ( i = 0; i < FilaA; ++i)
+  	{
+  		for ( j = 0; j < ColumnaB; ++j)
+  		{
+  			ArregloResultado[u]=MatrizResultado[i][j]+48;
+  			u++;
+  			
+  		}
+  		
+  	}
+
+  	printf("%s",ArregloResultado);
+
+
+  	
+
+	}else{
+
+
+		printf("NO se puede realizar la multiplicacion de matrices\n");
+	}
+
+return 0;
+}
