@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int filasA = 3;
+int columnasA = 3;
+
+
+int matrizA[3][3] = {{2,1,3},{4,5,6},{7,8,9}};
+int trans[3][3];
+
+void ponderar(int matriz[][3], int b){
+	int i,j;
+	for(i = 0; i<filasA;i++){
+		for(j = 0; j<columnasA;j++){
+			matriz[i][j] = matriz[i][j]  * b;
+		}
+	}
+	
+}
+
+void transpuesta(int matrizA[][3]){
+	int i,j;
+	int matrizB[3][3];
+	for(i = 0;i<filasA;i++){
+		for(j = 0;j<columnasA;j++){
+			trans[i][j] = matrizA[j][i];
+		}
+	}
+}
+
+int main(){
+
+	ponderar(matrizA,3);
+	transpuesta(matrizA);
+	int i,j;
+	for(i = 0; i<filasA;i++){
+		for(j = 0; j<columnasA;j++){
+			printf("%d ",trans[i][j]);
+		}
+		printf("\n");
+	}
+	return 0;
+}
+
+
+
